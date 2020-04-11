@@ -1,4 +1,4 @@
-# boot/bootstrap\
+# boot/bootstrap
 ①電源を入れる\
 ②BIOS/UEFIが起動\
 →ハードウェアのチェック、初期化\
@@ -13,7 +13,18 @@
 ⑤init,systemdプロセスを実行\
 →ログインプロンプトを表示して起動処理完了\
 
-# GRUB2の設定\
+# GRUB2の設定
 ①/etc/default/grub　設定\
 ②grub-mkconfig,grub2-mkconfig　実行\
 ③/boot/grub/grub.cfg　が生成（GRUB2の設定ファイル）
+
+# デバイスファイル
+ハードディスクやCD-ROM,シリアルポートといったデバイスの出入力を扱う為の特殊なファイル。
+# パーティション
+# ファイルシステム
+# ext2,ext3,ext4,XFS,VFAT
+# マウント
+# /etc/fstab
+# ジャーナルリングファイルシステム
+# ディスククォータ
+# FHS
