@@ -108,9 +108,26 @@ ruby sample.rb 1th 2nd 3rd 4th 5th
 
 ```
 
+# ファイルからテキストデータを読み込んで表示する
+①ファイルを開く
+②ファイルのテキストデータを読み込む
+③読み込んだテキストデータを出力する
+④ファイルを閉じる
 
+コマンドラインの引数をファイルに指定し、ファイルの内容を読み込んで表示する
+```Ruby
+filename = ARGV[0]
+file = File.open(filename)
+text = file.read
+print text
+file.close 
+```
 
-
-
-
-
+```Ruby
+filename = ARGV[0]
+file = File.open(filename)
+file.each_line do |line|
+  print line
+end
+file.close
+```
