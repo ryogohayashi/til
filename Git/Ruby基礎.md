@@ -144,4 +144,36 @@ file.each_line do |line|
 end
 file.close
 ```
-　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+
+# メソッドの作成
+
+def メソッド名
+  メソッドで実行したい処理
+end
+
+```Ruby
+def hello
+  puts "Hello, Ruby."
+end
+
+hello()
+```
+
+# 別のファイルを取り込む
+
+プログラムの中でライブラリを読み込む
+
+require　使いたいライブラリのファイル名
+
+require_relative　使いたいライブラリのファイル名
+
+使いたいライブラリのファイル名の[.rb]は省略することができる
+
+
+
+
+
+
+
+
+
