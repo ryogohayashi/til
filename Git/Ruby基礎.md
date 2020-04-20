@@ -169,10 +169,17 @@ require_relative　使いたいライブラリのファイル名
 
 使いたいライブラリのファイル名の[.rb]は省略することができる
 
+# requireメソッド
 
+```Ruby
+require "data"
 
+days = Date.today - Date.new(1993, 2, 24)
+puts days.to_i
 
+```
 
+requireメソッドでdateライブラリを読み込むことで、今日の日付を求めるDateメソッドなどを利用できる。
 
 
 
