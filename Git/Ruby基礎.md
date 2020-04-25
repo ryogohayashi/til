@@ -881,16 +881,110 @@ p meth(x:4,y:3,z:2,v:3,w:5)
 
 ハッシュをキーワード引数として渡すことができる
 
+# クラスとは
 
+クラスとインスタンス
 
+クラスとはオブジェクトの種類を指すもの。
 
+Rubyのオブジェクトは例外なく何らかのクラスに属している。
 
+「あるクラスのオブジェクト」のことを、そのクラスの「インスタンス」と呼ぶ。
 
+※「配列はArrayクラスのインスタンス」「文字列はStringクラスのインスタンス」
 
+新しいインスタンスを生成するには、各クラスのnewメソッドを使うのが、一般的。
 
+```Ruby
+ary = Array.new
+p ary #=> []
+```
 
+オブジェクトがどのクラスに属しているかは、classメソッドを使う。
 
+```Ruby
+ary = Array.new
+p ary.class #=> Array
+p "abc".class #=> String
+```
 
+継承
+
+すでに定義されているクラスを拡張して新しいクラスを作ることを継承という。
+
+継承によって新しく作られたクラスをサブクラス、継承の元になったクラスをスーパークラスという。
+
+継承を行うことによって以下ができる。
+
+・既存の機能はそのままで、まったく新しい機能を追加する
+・既存の機能を定義し直して同じ名前のメソッドに違う振る舞いをさせる
+・既存の機能に処理を追加して拡張する
+
+class文
+
+class クラス名
+  クラスの定義
+end
+
+initializeメソッド
+
+class文の中でメソッドを定義すると、そのクラスのインスタンスメソッドとなる。
+
+ただし、initializeメソッドは特別。
+
+newメソッドによってオブジェクトを生成すると、このメソッドが呼ばれる。
+
+その時、newに渡した引数がそのまま渡される。
+
+オブジェクトにとって必要な初期化の処理はここに記述する。
+
+```Ruby
+def initialize(name)
+  @name = name
+  @lines = []
+end
+```
+
+initializeメソッドは引数nameを受け取るようになっている。
+
+```Ruby
+r = Receipt.new（"ストアA"）
+```
+
+というようにオブジェクトを生成すると、initializeメソッドに"ストアA"が渡される。
+
+```Ruby
+class Receipt
+  def initialize(name)
+    @name = name
+    @lines = []
+  end
+
+  def lines=(lines)
+    @lines = lines
+  end
+
+  def calc
+    total = 0
+    @lines.each do |line|
+      total += line[:price] * line[:num]
+    end
+    total
+  end
+
+  def output
+    puts "レシート #{@name}"
+    @lines.each do |line|
+      puts "#{line[:name]} #{line[:price]}円 x #{line[:num]}"
+    end
+    puts "合計金額: #{calc}円"
+  end
+end
+
+r = Receipt.new("ストアA")
+r.lines = [{name: "卵",price: 200,num: 1},{name:  "大根",price: 100,num: 2}]
+r.output
+```
 
 
 
